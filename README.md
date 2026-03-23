@@ -8,8 +8,6 @@ Beginner-friendly Python project for monitoring outgoing network traffic and rai
 - Tracks outgoing bytes per destination IP over the last 30 seconds.
 - Sends a desktop notification when traffic to an unknown external IP crosses a threshold.
 
-This is a simple learning project, not an enterprise IDS.
-
 ## Project files
 
 - `monitor.py` -> main monitoring service
