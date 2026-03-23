@@ -1,6 +1,6 @@
-# Intelligent Network Anomaly Monitor (Simple Version)
+# AnomalyWizard
 
-Beginner-friendly Python project for monitoring outgoing network traffic and raising a desktop alert when there is a sudden spike to an unknown external IP.
+Python course project for monitoring outgoing network traffic and raising a desktop alert when there is a sudden spike to an unknown external IP.
 
 ## What this does
 
