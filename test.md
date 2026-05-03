@@ -12,7 +12,6 @@ Private IP alerted: False
 Alerts before/after immediate repeat: 1 1
 
 Done.
-
 ```
 
 ## Explaination
@@ -21,7 +20,7 @@ Done.
 
  means the simulated packet stream for destination 1.2.3.4 crossed the alert threshold in test_monitor.py. 
  
- The next line:
+- The next line:
  `Alert triggered: True`
 
  confirms the test detected that spike and called the alert path.
