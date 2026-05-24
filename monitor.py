@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import ipaddress
-import importlib
+import platform
 import time
 from collections import defaultdict, deque
 from typing import Deque, DefaultDict, Tuple
 
 from scapy.all import IP, sniff  # type: ignore
+
+try:
+    from winotify import Notification, audio  # type: ignore
+except Exception:
+    Notification = None
+    audio = None
 
 # Beginner-friendly knobs you can edit.
 WINDOW_SECONDS = 30
@@ -50,16 +56,30 @@ def send_alert(ip_text: str, total_bytes: int) -> None:
     print(f"[ALERT] {message}")
 
     try:
-        notification = importlib.import_module("plyer.notification")
-        notification.notify(
+        if platform.system() != "Windows":
+            raise RuntimeError("Windows toast notifications are only available on Windows.")
+
+        if Notification is None:
+            raise RuntimeError("winotify is not installed. Run `python -m pip install -r requirements.txt`.")
+
+        toast = Notification(
+            app_id="AnomalyWizard",
             title=title,
-            message=message,
-            app_name="Anomaly Monitor",
-            timeout=10,
+            msg=message,
+            duration="short",
         )
+
+        if audio is not None:
+            try:
+                toast.set_audio(audio.Default, loop=False)
+            except Exception:
+                # Audio is optional; the notification should still display.
+                pass
+
+        toast.show()
     except Exception:
-        # Notification library can fail if not installed or OS blocks popups.
-        pass
+        # Keep the alert visible in the console if Windows notifications fail.
+        print("[WARN] Windows notification could not be displayed.")
 
 
 def analyze_packet(packet) -> None:

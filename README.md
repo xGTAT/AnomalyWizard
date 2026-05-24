@@ -6,7 +6,7 @@ Python course project for monitoring outgoing network traffic and raising a desk
 
 - Sniffs IP packets in real time using `scapy`.
 - Tracks outgoing bytes per destination IP over the last 30 seconds.
-- Sends a desktop notification when traffic to an unknown external IP crosses a threshold.
+- Sends a native Windows toast notification when traffic to an unknown external IP crosses a threshold.
 
 ## Project files
 
@@ -62,6 +62,6 @@ Edit these values in `monitor.py`:
 
 ## Notes
 
-- If no notification appears, check Windows notification settings.
+- If no notification appears, check Windows notification settings and Focus Assist.
 - Some traffic patterns can create false positives; this is expected in a simple version.
 - Read the test.md file for information on how the test monitor works (for debugging purposes)
