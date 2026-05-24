@@ -14,12 +14,12 @@ except Exception:
     Notification = None
     audio = None
 
-# Beginner-friendly knobs you can edit.
+
 WINDOW_SECONDS = 30
 SPIKE_BYTES_THRESHOLD = 250_000  # 250 KB sent to one IP in 30 seconds
 ALERT_COOLDOWN_SECONDS = 60
 KNOWN_SAFE_IPS = {
-    # Add known external IPs here if needed, for example "8.8.8.8"
+    
 }
 
 # Per destination IP: [(timestamp, packet_size_bytes), ...]
@@ -73,7 +73,6 @@ def send_alert(ip_text: str, total_bytes: int) -> None:
             try:
                 toast.set_audio(audio.Default, loop=False)
             except Exception:
-                # Audio is optional; the notification should still display.
                 pass
 
         toast.show()
