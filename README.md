@@ -14,20 +14,20 @@ Python course project for monitoring outgoing network traffic and raising a desk
 - `requirements.txt` -> Python dependencies
 - `scripts/start_background.ps1` -> starts monitor in background on Windows
 
-## 1) Install prerequisites (Windows)
+## 1] Install prerequisites (Windows)
 
 1. Install Python 3.10+.
 2. Install [Npcap](https://npcap.com/) and check "Install Npcap in WinPcap API-compatible Mode".
 3. Open PowerShell as Administrator.
 
-## 2) Install dependencies
+## 2] Install dependencies
 
 ```powershell
 cd d:\AnomalyWizard
 python -m pip install -r requirements.txt
 ```
 
-## 3) Run the monitor (foreground)
+## 3] Run the monitor (foreground)
 
 ```powershell
 python monitor.py
@@ -35,7 +35,7 @@ python monitor.py
 
 Press `Ctrl + C` to stop.
 
-## 4) Run as background service (simple)
+## 4] Run as background service (simple)
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\start_background.ps1
