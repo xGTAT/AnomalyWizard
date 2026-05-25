@@ -1,16 +1,7 @@
-"""
-Simple mock tests for AnomalyWizard's `monitor.py`.
-Run with: python test_monitor.py
-
-These tests simulate packets without requiring real network traffic.
-"""
-
 import sys
 import types
 import time
 
-# If `scapy` isn't installed in the test environment, provide a lightweight shim
-# so `monitor` can import `IP` and `sniff` without requiring the real package.
 if 'scapy.all' not in sys.modules:
     scapy_all = types.ModuleType('scapy.all')
     scapy_all.IP = object()
